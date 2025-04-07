@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDoS Detection System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>DDoS DETECTION SYSTEM</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div id="alert-banner" class="alert-banner">
+            <strong>DDoS ATTACK DETECTED!</strong> <span id="alert-message"></span>
+        </div>
+        
+        <div class="status-bar">
+            <div class="status-card">
+                <div class="status-label">STATUS</div>
+                <div id="status-value" class="status-value">IDLE</div>
+            </div>
+            <div class="status-card">
+                <div class="status-label">PACKETS</div>
+                <div id="packets-value" class="status-value">0</div>
+            </div>
+            <div class="status-card">
+                <div class="status-label">ATTACKS</div>
+                <div id="attack-value" class="status-value">0</div>
+            </div>
+            <div class="status-card">
+                <div class="status-label">SOURCES</div>
+                <div id="sources-value" class="status-value">0</div>
+            </div>
+            <div class="status-card">
+                <div class="status-label">LAST ALERT</div>
+                <div id="last-alert" class="status-value">NONE</div>
+            </div>
+        </div>
+        
+        <div class="dashboard">
+            <div class="panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">TRAFFIC MONITOR</h2>
+                    <div>
+                        <button id="start-btn" class="btn">START</button>
+                        <button id="stop-btn" class="btn btn-alert">STOP</button>
+                    </div>
+                </div>
+                <div class="data-list" id="traffic-list">
+                    <div class="data-item">
+                        <span>System ready</span>
+                        <span class="protocol">IDLE</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">THREAT SOURCES</h2>
+                    <button id="block-btn" class="btn btn-alert">BLOCK ALL</button>
+                </div>
+                <div class="data-list" id="sources-list">
+                    <div class="data-item">
+                        <span>No threats detected</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">TRAFFIC ANALYSIS</h2>
+                </div>
+                <div class="chart-container">
+                    <canvas id="traffic-chart"></canvas>
+                </div>
+            </div>
+            
+            <div class="panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">SYSTEM LOG</h2>
+                    <button id="clear-logs" class="btn">CLEAR</button>
+                </div>
+                <div class="data-list" id="system-logs">
+                    <div class="log-entry">
+                        <span class="log-time">[SYSTEM]</span>
+                        <span class="log-message">DDoS detection initialized</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
